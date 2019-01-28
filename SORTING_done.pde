@@ -32,7 +32,7 @@ Button filterButton3;
 Button filterButton4;
 
 
-//Filter Buttons coordinates
+//Filter Buttons coordinates  fb = filterbutton
 int fb1x = 250;
 int fb2x = 610;
 int fb3x = 970;
@@ -87,6 +87,10 @@ void setup() {
   gamesButton = new Button(buttonX+2*buttonW, buttonX+3*buttonW, buttonY, buttonH);
   supportButton = new Button(buttonX+3*buttonW, buttonX+4*buttonW, buttonY, buttonH);
   contactButton = new Button(buttonX+4*buttonW, buttonX+5*buttonW, buttonY, buttonH);
+  filterButton1 = new Button(fb1x, fb1x2, fby1, fby2);
+  filterButton2 = new Button(fb2x, fb2x2, fby1, fby2);
+  filterButton3 = new Button(fb3x, fb3x2, fby1, fby2);
+  filterButton4 = new Button(fb4x, fb4x2, fby1, fby2);
 }
 
 void draw() {
@@ -114,40 +118,28 @@ void draw() {
   if (gamesButton.clicked()) {
     pageNumber = 3;
     games.pageY = 0;
-    filterButton1 = new Button(fb1x, fb1x2, fby1, fby2);
-    filterButton2 = new Button(fb2x, fb2x2, fby1, fby2);
-    filterButton3 = new Button(fb3x, fb3x2, fby1, fby2);
-    filterButton4 = new Button(fb4x, fb4x2, fby1, fby2);
   }
   if (pageNumber == 3 || pageNumber == 6 || pageNumber == 7 || pageNumber == 8 || pageNumber == 9) {
-    if (filterButton1 != null) {
       if (filterButton1.clicked()) {
         pageNumber = 6;
         games.pageY = 0;
-      }
     }
-    if (filterButton2 != null) {
       if (filterButton2.clicked()) {
         pageNumber = 7;
         za.pageY = 0;
-      }
     }
-    if (filterButton3 != null) {
       if (filterButton3.clicked()) {
         pageNumber = 8;
         ae.pageY = 0;
-      }
     }
-    if (filterButton4 != null) {
       if (filterButton4.clicked()) {
         pageNumber = 9;
         ea.pageY = 0;
-      }
     }
   }
 
 
-  
+
   // Displaying the corresponding page
   switch(pageNumber) {
   case 1: 
@@ -193,6 +185,6 @@ void draw() {
 
 // Checking for mouse wheel event
 
-void mouseWheel(MouseEvent event) {
+void mouseWheel(MouseEvent event) { //me is class, event is object
   wheelCount = event.getCount();
 }
